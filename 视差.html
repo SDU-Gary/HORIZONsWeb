@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Vision.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class = "content">        
+        <div class = "contents"></div>
+        <div class = "parallax p1" >
+            <div class="background"></div>
+            <div class = "picture"></div>
+            <div class = "container">
+                <span class = "h1">HORIZON
+                    <br>
+                    摄影
+                </span>
+            </div>
+            
+        </div>
+        <div class = "contents"></div>
+        <div class = "parallax p2">
+            <div class="background"></div>
+            <div class = "painterLeft"></div>
+            <div class = "painterRight"></div>
+            <div class = "container">
+                <span class = "h1">HORIZON
+                    <br>
+                    手绘
+                </span>
+            </div>
+        </div>
+        <div class = "contents"></div>
+        <div class = "parallax p3">
+            <div class="background"></div>
+            <div class = "container">
+                <span class = "h1">HORIZON
+                    <br>
+                    视频
+                </span>
+            </div>
+        </div>
+        <div class = "contents"></div>
+        <div class = "photoPage"></div>
+    </div>
+    <script>
+        function stepIn(){
+            window.location.href = "file:///D:/前端/photo-wall-master/photo-wall-master/index.html"
+        }
+    
+        
+        window.addEventListener('scroll', function() {
+            var scrollPosition = window.scrollY;
+            var windowHeight = window.innerHeight;
+            var elements = document.querySelectorAll('.painterLeft'); // 你的三角形元素
+            elements.forEach(function(element) {
+                var elementTop = window.innerHeight - element.getBoundingClientRect().top;
+                var elementBottom = element.getBoundingClientRect().bottom;
+
+                if (elementBottom > 0 && elementTop > 0) {
+                    // 元素在屏幕中
+                    var progress = (windowHeight - elementTop) / (windowHeight + elementBottom);
+                    var position = progress * 100; // 你的三角形最大位置
+                    element.style.left = position + '%';
+                } else {
+                    // 元素完全不在屏幕中
+                    element.style.left = '0%';
+                }
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            var scrollPosition = window.scrollY;
+            var windowHeight = window.innerHeight;
+            var elements = document.querySelectorAll('.painterRight'); // 你的三角形元素
+            elements.forEach(function(element) {
+                var elementTop = window.innerHeight - element.getBoundingClientRect().top;
+                var elementBottom = element.getBoundingClientRect().bottom;
+
+                if (elementBottom > 0 && elementTop > 0) {
+                    // 元素在屏幕中
+                    var progress = (windowHeight - elementTop) / (windowHeight + elementBottom);
+                    var position = progress * 100; // 你的三角形最大位置
+                    element.style.right = position + '%';
+                } else {
+                    // 元素完全不在屏幕中
+                    element.style.right = '0%';
+                }
+            });
+        });
+    </script>
+
+    
+</body>
+</html>
